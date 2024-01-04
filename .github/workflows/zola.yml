@@ -14,7 +14,7 @@ jobs:
             tool: zola@0.17.1
 
         - name: ls
-          run: ls
+          run: ls /home/runner/.cargo/bin/zola
 
         - name: build
           run: zola build
