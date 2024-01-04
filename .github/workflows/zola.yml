@@ -16,7 +16,7 @@ jobs:
           run: tar -xzvf zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
 
         - name: test
-          run: ./zola init
+          run: ./zola init test
 
         - name: build
           run: ./zola build
