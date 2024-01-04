@@ -21,6 +21,9 @@ jobs:
             echo 'title = "Mon Site Zola"' >> config.toml
             mkdir content
             echo 'Bienvenue sur Mon Site Zola' > content/index.md
+            ls
+            cat config.toml
+            cat content/index.md
 
         - name: build
           run: ./zola build
