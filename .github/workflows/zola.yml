@@ -24,6 +24,7 @@ jobs:
             ls
             cat config.toml
             cat content/index.md
+            pwd
 
         - name: build
           run: ./zola build
