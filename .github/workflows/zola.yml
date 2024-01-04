@@ -18,8 +18,8 @@ jobs:
         - name: config.toml
           run: |
             echo 'base_url = "http://example.com"' > config.toml
-            echo 'compile_sass = true'> config.toml
-            echo 'build_search_index = false'> config.toml    
+            echo 'compile_sass = true'>> config.toml
+            echo 'build_search_index = false'>> config.toml    
             echo 'title = "Mon Site Zola"' >> config.toml
             mkdir content
             mkdir sass
