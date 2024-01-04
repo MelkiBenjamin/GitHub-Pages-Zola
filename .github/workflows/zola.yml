@@ -9,12 +9,14 @@ jobs:
         - name: test
           run: date
 
-        - uses: taiki-e/install-action@v2
-          with:
-            tool: zola@0.17.1
-
         - name: ls
-          run: ls -alh /home/runner/.cargo/bin/zola
+          run: wget https://github.com/getzola/zola/releases/download/v0.17.1/zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
+
+        - name: test
+          run: tar -xzvf zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
+
+        - name: test
+          run: ./zola init
 
         - name: build
-          run: zola build
+          run: ./zola build
