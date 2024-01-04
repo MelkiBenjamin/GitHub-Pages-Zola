@@ -27,11 +27,7 @@ jobs:
             mkdir templates
             mkdir themes
 
-        - name: creer index
-          run: |
-            echo '+++' >> content/index.md
-            echo 'Bienvenue sur Mon Site Zola' >> content/index.md
-            echo '+++' >> content/index.md
+
 
         - name: test
           run: ls
