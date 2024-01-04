@@ -27,8 +27,6 @@ jobs:
             mkdir templates
             mkdir themes
 
-
-
         - name: test
           run: ls
 
@@ -38,8 +36,8 @@ jobs:
         - name: test
           run: ls content
             
-        - name: cat index
-          run: cat content/index.md
+#        - name: cat index
+#          run: cat content/index.md
             
         - name: test
           run: pwd
