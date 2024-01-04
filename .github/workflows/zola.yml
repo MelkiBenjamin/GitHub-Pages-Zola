@@ -16,7 +16,11 @@ jobs:
           run: tar -xzvf zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
 
         - name: test
-          run: ./zola init test
+          run: |
+            echo 'base_url = "http://example.com"' > config.toml
+            echo 'title = "Mon Site Zola"' >> config.toml
+            mkdir content
+            echo '# Bienvenue sur Mon Site Zola' > content/index.md
 
         - name: build
           run: ./zola build
