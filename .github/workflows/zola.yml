@@ -41,6 +41,16 @@ jobs:
             
         - name: test
           run: pwd
+
+        - name: git clone adodoks
+          run: |
+            cd themes
+            git clone https://github.com/aaranxu/adidoks.git
+
+        - name: test
+          run: |
+            cp themes/adidoks/config.toml.example config.toml
+
         
         - name: build
           run: ./zola build
