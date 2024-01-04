@@ -44,3 +44,56 @@ jobs:
         
         - name: build
           run: ./zola build
+
+        - name: artifact upload
+          uses: actions/upload-artifact@v4
+          with:
+            name: site
+            path: public
+
+    deploiement:
+        runs-on: ubuntu-latest
+        permissions:
+            pages: write     
+            id-token: write 
+        environment:
+                name: github-pages
+                url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+        - name: test
+          run: date
+
+        - name: ls
+          run: ls
+
+        - name: artifact download
+          uses: actions/download-artifact@v4
+          with: 
+            name: site
+
+        - name: ls et creer dossier _site
+          run: |
+              ls -alh
+              mkdir _site
+              ls
+  
+        - name: deplacer dans _site en html
+          run: |          
+              mv $(ls --ignore=_site) _site/
+              ls _site
+
+        - name: Fix permissions
+          run: |
+            chmod -c -R +rX "_site/" | while read line; do
+              echo "::warning title=Invalid file permissions automatically fixed::$line"
+            done
+    
+        - name: upload-pages-artifac
+          uses: actions/upload-pages-artifact@v3 
+              
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
+            
+        needs: build
+    
