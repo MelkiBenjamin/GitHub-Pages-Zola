@@ -30,7 +30,7 @@ jobs:
         - name: cp
           run: |
             cd test1
-            sudo cp -r * /..
+            sudo cp -r * ./..
 
         - name: ls
           run: ls -alh 
