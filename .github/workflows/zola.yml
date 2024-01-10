@@ -15,20 +15,26 @@ jobs:
         - name: test
           run: tar -xzvf mdbook-v0.4.36-x86_64-unknown-linux-musl.tar.gz
 
-        - name: test
+        - name: ls
           run: ls -alh
 
-        - name: test 2
+        - name: init
           run: ./mdbook init test1
 
-        - name: test
+        - name: ls
           run: ls -alh test1
 
-        - name: build
+        - name: cp
           run: |
             cd test1
             cp * /..
 
-            - name: build
-            run: |
+        - name: build
+          run: |
             ./mdbook build
+
+        - name: build
+          run: |
+            ./mdbook build
+
+
