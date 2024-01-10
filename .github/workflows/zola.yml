@@ -19,7 +19,7 @@ jobs:
           run: ls -alh
 
         - name: test 2
-          run: ./mdbook init book1
+          run: ./mdbook 
 
         - name: test
           run: ls -alh book1
@@ -27,4 +27,4 @@ jobs:
         - name: build
           run: |
             cd book1
-            mdbook build
+            .mdbook build
