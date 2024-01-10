@@ -18,4 +18,13 @@ jobs:
         - name: test
           run: ls -alh
 
- 
+        - name: test 2
+          run: ./mdbook mdbook init book1
+
+        - name: test
+          run: ls -alh book1
+
+        - name: build
+          run: |
+            cd book1
+            mdbook build
