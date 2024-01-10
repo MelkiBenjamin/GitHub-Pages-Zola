@@ -9,6 +9,9 @@ jobs:
         - name: test
           run: date
 
+        - name: checkout
+          uses: actions/checkout@v4
+
         - name: ls
           run: wget https://github.com/rust-lang/mdBook/releases/download/v0.4.36/mdbook-v0.4.36-x86_64-unknown-linux-musl.tar.gz
 
@@ -48,10 +51,7 @@ jobs:
         - name: ls .
           run: ls -alh 
 
-        - name: ls .
-          uses: actions/checkout@v4
-
-        - name: ls .
+        - name: cp
           run: cp github-action workflows.md ./book
 
         - name: artifact upload
