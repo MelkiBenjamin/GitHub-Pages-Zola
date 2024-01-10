@@ -32,12 +32,13 @@ jobs:
             cd test1
             sudo cp -r * /..
 
-        - name: build
-          run: |
-            ./mdbook build
+        - name: ls
+          run: ls -alh 
 
         - name: build
           run: |
             ./mdbook build
+
+
 
 
