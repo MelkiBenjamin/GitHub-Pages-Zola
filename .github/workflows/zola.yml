@@ -48,6 +48,12 @@ jobs:
         - name: ls .
           run: ls -alh 
 
+        - name: ls .
+          uses: actions/checkout@v4
+
+        - name: ls .
+          run: cp github-action workflows.md ./book
+
         - name: artifact upload
           uses: actions/upload-artifact@v4
           with:
