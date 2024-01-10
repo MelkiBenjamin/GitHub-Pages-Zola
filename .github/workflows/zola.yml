@@ -37,7 +37,7 @@ jobs:
 
         - name: build
           run: |
-            ./mdbook build
+             sudo ./mdbook build
 
 
 
