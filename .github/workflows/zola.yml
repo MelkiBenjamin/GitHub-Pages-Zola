@@ -22,12 +22,15 @@ jobs:
           run: ./mdbook init test1
 
         - name: ls
+          run: ls -alh  
+
+        - name: ls
           run: ls -alh test1
 
         - name: cp
           run: |
             cd test1
-            cp * /..
+            cp -r * /..
 
         - name: build
           run: |
