@@ -35,18 +35,24 @@ jobs:
         - name: ls
           run: ls -alh 
 
+        - name: ls
+          run: ls -alh book
+
         - name: build
           run: |
              sudo ./mdbook build
 
-        - name: ls
+        - name: ls book
+          run: ls -alh book
+
+        - name: ls .
           run: ls -alh 
 
         - name: artifact upload
           uses: actions/upload-artifact@v4
           with:
             name: site
-            path: build/
+            path: book/
 
     deploiement:
         runs-on: ubuntu-latest
