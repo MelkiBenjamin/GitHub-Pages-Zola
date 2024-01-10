@@ -30,7 +30,7 @@ jobs:
         - name: cp
           run: |
             cd test1
-            cp -r * /..
+            sudo cp -r * /..
 
         - name: build
           run: |
