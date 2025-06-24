@@ -1,3 +1,3 @@
-# zola
+# Zola
 
-Automatisation de la mise en place avec Github Actions du generateur de site Zola ecrit en Rust.
+Automatisation de la mise en place avec GitHub Actions du generateur de site Zola ecrit en Rust.
