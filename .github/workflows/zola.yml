@@ -6,10 +6,10 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-        - name: ls
+        - name: telechargement de zola
           run: wget https://github.com/getzola/zola/releases/download/v0.17.1/zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
 
-        - name: test
+        - name: desarchive de zola 
           run: tar -xzvf zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
 
         - name: config.toml
@@ -25,23 +25,14 @@ jobs:
             mkdir themes
 
         - name: test
-          run: ls
-
-        - name: test
           run: cat config.toml
-            
-        - name: test
-          run: ls content
-            
-        - name: test
-          run: pwd
 
         - name: git clone adodoks
           run: |
             cd themes
             git clone https://github.com/codeandmedia/zola_easydocs_theme
 
-        - name: test
+        - name: copie de theme
           run: |
             cp themes/zola_easydocs_theme/config.toml config.toml
 
