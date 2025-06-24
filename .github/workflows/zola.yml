@@ -1,4 +1,4 @@
-name: deploiement docusaurus github page 
+name: Deploiement Zola gitHub Pages 
 
 on: [push, workflow_dispatch]
 
@@ -6,13 +6,13 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-        - name: telechargement de zola
+        - name: Telechargement de Zola
           run: wget https://github.com/getzola/zola/releases/download/v0.17.1/zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
 
-        - name: desarchive de zola 
+        - name: Desarchive de Zola
           run: tar -xzvf zola-v0.17.1-x86_64-unknown-linux-gnu.tar.gz
 
-        - name: config.toml
+        - name: Config.toml
           run: |
             echo 'base_url = "http://example.com"' > config.toml
             echo 'compile_sass = true'>> config.toml
@@ -27,19 +27,19 @@ jobs:
         - name: test
           run: cat config.toml
 
-        - name: git clone adodoks
+        - name: Git clone adodoks
           run: |
             cd themes
             git clone https://github.com/codeandmedia/zola_easydocs_theme
 
-        - name: copie de theme
+        - name: Copie de theme
           run: |
             cp themes/zola_easydocs_theme/config.toml config.toml
 
-        - name: build
+        - name: Build
           run: ./zola build
 
-        - name: artifact upload
+        - name: Artifact upload
           uses: actions/upload-artifact@v4
           with:
             name: site
@@ -57,7 +57,7 @@ jobs:
         - name: ls
           run: ls
 
-        - name: artifact download
+        - name: Artifact download
           uses: actions/download-artifact@v4
           with: 
             name: site
@@ -68,7 +68,7 @@ jobs:
               mkdir _site
               ls
   
-        - name: deplacer dans _site en html
+        - name: Deplacer dans _site en html
           run: |          
               mv $(ls --ignore=_site) _site/
               ls _site
@@ -79,7 +79,7 @@ jobs:
               echo "::warning title=Invalid file permissions automatically fixed::$line"
             done
     
-        - name: upload-pages-artifac
+        - name: Upload pages artifac
           uses: actions/upload-pages-artifact@v3 
               
         - name: Deploy to GitHub Pages
